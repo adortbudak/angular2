@@ -25,5 +25,10 @@
     "rxjs": "^5.0.0-beta.6",
     "systemjs": "^0.19.31",
     "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "lite-server": "2.2.2",
+    "gulp": "3.9.1",
+    "gulp-typescript": "2.13.6"
   }
 }
