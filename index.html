@@ -8,15 +8,15 @@
         <script src="node_modules/reflect-metadata/Reflect.js"></script>
         <script src="node_modules/systemjs/dist/system.js"></script>
         <script src="node_modules/rxjs/bundles/Rx.js"></script>
-
         <script src="systemjs.config.js"></script>
         <script>
-            System.import('built/pomodoro-timer');
+            System.import('./built/pomodoro-timer')
+            .then(null, console.error.bind(console));
             </script>
 
     </head>
 
     <body>
-        <hello-angular></hello-angular>
+        <pomodore-timer></pomodore-timer>
     </body>
 </html>

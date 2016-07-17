@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {bootstrap} from '@angular/platform-browser-dynamic';
 
 @Component({
     selector: 'hello-angular',
@@ -14,5 +13,3 @@ class HelloAngularComponent {
         this.greeting = "Hello Angular 2!"
     }
 }
-
-bootstrap(HelloAngularComponent);

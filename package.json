@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "typings": "typings",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" "
   },
   "author": "Alper Dortbudak",
   "license": "ISC",
@@ -27,8 +31,7 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
-    "lite-server": "2.2.2",
-    "gulp": "3.9.1",
-    "gulp-typescript": "2.13.6"
+    "concurrently": "2.2.0",
+    "lite-server": "2.2.2"
   }
 }
