@@ -1,62 +1,46 @@
-import {Component} from '@angular/core';
+import {Component, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
  
 
 @Component({
-    selector: 'pomodore-timer',
+    selector: 'countdown',
     template: `
-        <div class="text-center">
-        <h1> {{minutes}}:{{seconds | number: '2.0'}} </h1>
-        <p>
-            <button (click)="togglePause()" class="btn btn-danger">
-             {{buttonLabel}}
-            </button>
-        </p>
-        </div>
+        <h1>Time left: {{seconds}}</h1>
     `
 })
 
 /**
  * PomodoroTimerComponent
  */
-class PomodoroTimerComponent {
-    minutes: number;
-    seconds: number;
-    buttonLabel: string;
-    isPaused: boolean;
+class CountdownComponent {
+    @Input() seconds: number;
+    intervalId: number;
+    @Output() complete: EventEmitter<any> = new EventEmitter();
+    //@Output() progress: EventEmitter<number> = new EventEmitter();
     constructor() {
-        this.resetPomodoro();
-        setInterval(()=> this.tick(),1000);
+        this.intervalId = setInterval(()=> this.tick(),1000);
     }
 
     tick(){
-        if (!this.isPaused){
-            this.buttonLabel = 'Pause';
-            if (--this.seconds < 0){
-            this.seconds = 59;
-            if (--this.minutes < 0)
-            {
-                this.resetPomodoro();
-            }
+        if (--this.seconds < 1){
+            clearInterval(this.intervalId);
+            this.complete.emit(null);
         }
-        }
-        
-    }
-
-    resetPomodoro(){
-        this.minutes = 24;
-        this.seconds = 59;
-        this.buttonLabel = 'Start';
-        this.togglePause();
-    }
-
-    togglePause(){
-        this.isPaused = !this.isPaused;
-
-        if (this.minutes < 24 || this.seconds < 59){
-            this.buttonLabel = this.isPaused ? 'Resume' : 'Pause';
-        }
+        //this.progress.emit(this.seconds);
     }
 }
 
-bootstrap(PomodoroTimerComponent);
+@Component({
+    selector: 'pomodore-timer',
+    directives: [CountdownComponent],
+    encapsulation: ViewEncapsulation.None,
+    templateUrl: './app/pomodoro-timer.html'
+})
+
+class PomodoroTimerComponent{
+    onCountdownCompleted(){
+        alert('Time up!');
+    }
+}
+
+bootstrap (PomodoroTimerComponent);

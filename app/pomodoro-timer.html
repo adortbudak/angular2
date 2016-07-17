@@ -1,0 +1,15 @@
+<div class="container text-center">
+        <img src="assets/img/pomodoro.jpeg" />
+        <countdown [seconds]="25" (complete)="onCountdownCompleted()"
+        #blabla></countdown>
+        <p>
+            <button class="btn btn-default"
+            (click)="blabla.seconds = 25">
+            Reset countdown to 25 seconds
+            </button>
+        </p>
+        <p *ngIf="blabla.seconds < 10">
+            Beware! Only
+            <strong>{{blabla.seconds}} seconds</strong>
+            left.
+        </p>
