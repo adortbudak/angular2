@@ -9,9 +9,6 @@ interface Task {
     pomodorosRequired: number;
 }
 
-/**
- * TaskService
- */
 class TaskService {
     public taskStore: Array<Task>= [];
     constructor() {
