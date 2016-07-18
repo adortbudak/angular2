@@ -1,5 +1,6 @@
-import {Component,Input,Pipe,PipeTransform,Directive,OnInit,HostListener} from '@angular/core';
+import {Component,Input,Pipe,PipeTransform,Directive,HostListener} from '@angular/core';
 import {I18nPluralPipe,NgLocalization} from '@angular/common';
+import {FormattedTimePipe} from './pomodoro-task.pipe';
 
 
 interface Task {
@@ -34,7 +35,7 @@ class TaskService {
             {
                 name: "Task 4",
                 deadline: "Jun 26 2015",
-                queued: true,
+                queued: false,
                 pomodorosRequired: 3
             }
         ];
@@ -66,7 +67,8 @@ class TaskIconsComponent {
     styleUrls: ['./app/pomodoro-tasks.css'],
     templateUrl: './app/pomodoro-tasks.html',
     providers:[NgLocalization],
-    directives:[TaskIconsComponent]
+    directives:[TaskIconsComponent],
+    pipes:[FormattedTimePipe]
 })
 export class TasksComponent{
     today: Date;
