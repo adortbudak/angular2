@@ -4,9 +4,13 @@
         <div>
             <p>
                 <span>
-                    <pomodoro-task-icons [task]="queuedPomodorosIcons">
+                    <pomodoro-task-icons [icons]="queuedPomodorosIcons" 
+                        [task]="task" [taskTooltip]="tooltip">
                     </pomodoro-task-icons>
-                </span>
+                </span>                
+            </p>
+            <p #tooltip>Mouseover for details</p>
+            <p>
                 <span class="small">
                     (Estimated time: {{queuedPomodoros * 25 | pomodoroFormattedTime}})
                 </span>

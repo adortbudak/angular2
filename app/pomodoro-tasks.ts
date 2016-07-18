@@ -1,14 +1,11 @@
 import {Component,Input,Pipe,PipeTransform,Directive,HostListener} from '@angular/core';
 import {I18nPluralPipe,NgLocalization} from '@angular/common';
 import {FormattedTimePipe} from './pomodoro-task.pipe';
+import {Task} from './task';
+import {TaskTooltipDirective} from './pomodoro-task.directive';
 
 
-interface Task {
-    name: string;
-    deadline: Date;
-    queued: boolean;
-    pomodorosRequired: number;
-}
+
 
 class TaskService {
     public taskStore: Array<Task>= [];
@@ -54,12 +51,13 @@ class TaskService {
 @Component({
     selector:'pomodoro-task-icons',
     template:`
-        <img *ngFor="let icon of task" src="/assets/img/pomodoro.jpeg" width="50"/>
+        <img *ngFor="let icon of icons" src="/assets/img/pomodoro.jpeg" width="50"/>
     `
 })
 
 class TaskIconsComponent {
-    @Input() task: Object[] = [];    
+    @Input() icons: Object[] = [];    
+    @Input() task: Task;
 }
 
 @Component({
@@ -67,12 +65,13 @@ class TaskIconsComponent {
     styleUrls: ['./app/pomodoro-tasks.css'],
     templateUrl: './app/pomodoro-tasks.html',
     providers:[NgLocalization],
-    directives:[TaskIconsComponent],
+    directives:[TaskIconsComponent,TaskTooltipDirective],
     pipes:[FormattedTimePipe]
 })
 export class TasksComponent{
     today: Date;
     tasks: Task[];
+    task: Task;
     queuedPomodoros: number;
     queuedPomodorosIcons = [];
     queueHeaderMapping: any = {
@@ -90,6 +89,7 @@ export class TasksComponent{
     }
 
     toggleTask(task: Task){
+        this.task = task;
         task.queued = !task.queued;
         this.updateQueuedPomodoros();
     }
