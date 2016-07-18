@@ -53,23 +53,12 @@ class TaskService {
 @Component({
     selector:'pomodoro-task-icons',
     template:`
-        <img *ngFor="let icon of icons" src="/assets/img/pomodoro.jpeg" width="50"/>
+        <img *ngFor="let icon of task" src="/assets/img/pomodoro.jpeg" width="50"/>
     `
 })
 
-class TaskIconsComponent implements OnInit{
-    @Input() task: Task;
-    icons: Object[] = [];
-    ngOnInit(){
-        console.log(this.task.queued);
-        if (this.task.queued){
-            this.icons.length = this.task.pomodorosRequired;
-        }
-        else{
-            this.icons.length = 0;
-        }
-        this.icons.fill({name: this.task.deadline});
-    }
+class TaskIconsComponent {
+    @Input() task: Object[] = [];    
 }
 
 @Component({
@@ -83,6 +72,7 @@ export class TasksComponent{
     today: Date;
     tasks: Task[];
     queuedPomodoros: number;
+    queuedPomodorosIcons = [];
     queueHeaderMapping: any = {
         '=0': 'No pomodoros',
         '=1': 'One pomodoro',
@@ -108,6 +98,7 @@ export class TasksComponent{
             .reduce((pomodoros: number,queuedTask:Task) => {
                 return pomodoros + queuedTask.pomodorosRequired;
             },0);
+        this.queuedPomodorosIcons = Array(this.queuedPomodoros).fill(0,this.queuedPomodoros -1);
     }
 }
 
