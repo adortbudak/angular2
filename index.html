@@ -10,7 +10,7 @@
         <script src="node_modules/rxjs/bundles/Rx.js"></script>
         <script src="systemjs.config.js"></script>
         <script>
-            System.import('./built/app/pomodoro-timer')
+            System.import('./built/app/pomodoro-tasks')
             .then(null, console.error.bind(console));
             </script>
 
@@ -20,10 +20,10 @@
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <strong class="navbar-brand">My Pomodoro Timer</strong>
+                    <strong class="navbar-brand">My Pomodoro Tasks</strong>
                 </div>
             </div>
         </nav>
-        <pomodore-timer></pomodore-timer>
+        <pomodoro-tasks></pomodoro-tasks>
     </body>
 </html>
