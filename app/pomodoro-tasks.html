@@ -1,6 +1,14 @@
 <div class="container text-center">
     <img src="assets/img/pomodoro.jpeg" alt="Pomodoro"/>
     <div class="container">
+        <div>
+            <p>
+                <span *ngFor="let queuedTask of tasks">
+                    <pomodoro-task-icons [task]="queuedTask">
+                    </pomodoro-task-icons>
+                </span>
+            </p>
+        </div>
         <h4>Tasks backlog</h4>
         <table class="table">
             <thead>
@@ -30,17 +38,16 @@
                     <td>
                         <button type="button"
                         class="btn btn-default btn-xs"
-                        (click)="toggleTask(task)"
-                        [ngSwitch]="task.queued">
-                        <template [ngSwitchWhen]="false">
-                            <i class="glyphicon glyphicon-plus-sign"></i>Add
-                        </template>
-                        <template [ngSwitchWhen]="true">
-                            <i class="glyphicon glyphicon-minus-sign"></i>Remove
-                        </template>
-                        <template ngSwitchDefault>
-                            <i class="glyphicon glyphicon-plus-sign"></i>Add
-                        </template>
+                        (click)="toggleTask(task)" [ngSwitch]="task.queued">
+                            <template [ngSwitchWhen]="false">
+                                <i class="glyphicon glyphicon-plus-sign"></i>Add
+                            </template>
+                            <template [ngSwitchWhen]="true">
+                                <i class="glyphicon glyphicon-minus-sign"></i>Remove
+                            </template>
+                            <template ngSwitchDefault>
+                                <i class="glyphicon glyphicon-plus-sign"></i>Add
+                            </template>
                         </button>
                     </td>
                 </tr>
