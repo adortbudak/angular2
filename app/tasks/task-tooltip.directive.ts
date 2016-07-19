@@ -1,16 +1,16 @@
-import {Directive,Input,HostListener} from '@angular/core'
-import {Task} from '../shared/shared';
+import {Directive,Input, HostListener} from "@angular/core";
+import {Task} from "../shared/shared";
 
 @Directive({
-    selector: '[task]'
+    selector: "[task]",
 })
 
-export class TaskTooltipDirective{
+export default class TaskTooltipDirective {
     private defaultTooltipText: string;
     @Input() task: Task;
     @Input() taskTooltip: any;
 
-    @HostListener('mouseover')
+    @HostListener("mouseover")
     onMouseOver(){        
         if(!this.defaultTooltipText && this.taskTooltip){
             this.defaultTooltipText = this.taskTooltip.innerText;
@@ -18,7 +18,7 @@ export class TaskTooltipDirective{
         this.taskTooltip.innerText = this.task.name;
     }
 
-    @HostListener('mouseout')
+    @HostListener("mouseout")
     onMouseOut(){
         if(this.taskTooltip){
             this.taskTooltip.innerText = this.defaultTooltipText;

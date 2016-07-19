@@ -1,4 +1,4 @@
-import {bootstrap} from '@angular/platform-browser-dynamic';
-import {TasksComponent} from './pomodoro-tasks';
+import {AppComponent} from "./app.component";
+import {bootstrap} from "@angular/platform-browser-dynamic";
 
-bootstrap(TasksComponent);
+bootstrap(AppComponent);

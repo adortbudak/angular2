@@ -31,7 +31,7 @@ class CountdownComponent {
 }
 
 @Component({
-    selector: 'pomodore-timer',
+    selector: 'pomodoro-timer',
     directives: [CountdownComponent],
     encapsulation: ViewEncapsulation.None,
     templateUrl: './app/pomodoro-timer.html'
@@ -42,5 +42,3 @@ class PomodoroTimerComponent{
         alert('Time up!');
     }
 }
-
-bootstrap (PomodoroTimerComponent);
