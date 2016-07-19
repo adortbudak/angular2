@@ -1,4 +1,4 @@
-import {Component,Input,Pipe,PipeTransform,Directive,HostListener} from '@angular/core';
+import {Component,Input} from '@angular/core';
 import {I18nPluralPipe,NgLocalization} from '@angular/common';
 import {FormattedTimePipe} from './pomodoro-task.pipe';
 import {Task} from './task';
