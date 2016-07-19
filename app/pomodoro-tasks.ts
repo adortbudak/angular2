@@ -32,7 +32,6 @@ export class TasksComponent{
         this.tasks = taskService.taskStore;
         this.today = new Date();
         this.updateQueuedPomodoros();
-
     }
 
     toggleTask(task: Task){

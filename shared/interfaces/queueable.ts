@@ -1,4 +1,4 @@
-export interface Queueable{
-    queued:boolean
+export interface Queueable {
+    queued: boolean;
 }
 

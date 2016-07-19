@@ -1,7 +1,7 @@
-import {Queueable} from '../shared'
+import {Queueable} from "../shared";
 
-export interface Task extends Queueable{
+export interface Task extends Queueable {
     name: string;
-    deadline: Date;    
+    deadline: Date;
     pomodorosRequired: number;
 }
