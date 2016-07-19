@@ -1,5 +1,5 @@
 import {Component,Input} from '@angular/core';
-import {Task} from './task';
+import {Task} from '../shared/shared';
 
 @Component({
     selector:'pomodoro-task-icons',

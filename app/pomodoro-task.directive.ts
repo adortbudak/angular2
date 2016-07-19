@@ -1,5 +1,5 @@
 import {Directive,Input,HostListener} from '@angular/core'
-import {Task} from './task';
+import {Task} from '../shared/shared';
 
 @Directive({
     selector: '[task]'

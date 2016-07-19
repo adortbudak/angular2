@@ -5,6 +5,7 @@ import {Pipe,PipeTransform} from '@angular/core';
         name: 'pomodoroFormattedTime'
     }
 )
+
 export class FormattedTimePipe implements PipeTransform{
     transform(totalMinutes: number): string {
         let minutes: number = totalMinutes % 60;

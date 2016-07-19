@@ -1,7 +1,9 @@
-import {Task} from './task';
+import {Injectable} from '@angular/core'
+import {Task} from '../shared';
 
+@Injectable()
 export class TaskService {
-    public taskStore: Array<Task>= [];
+    public taskStore: Task[] = [];
     constructor() {
         const tasks = [
             {

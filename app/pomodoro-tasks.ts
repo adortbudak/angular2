@@ -1,9 +1,9 @@
 import {Component,Input} from '@angular/core';
 import {I18nPluralPipe,NgLocalization} from '@angular/common';
-import {FormattedTimePipe} from './pomodoro-task.pipe';
-import {Task} from './task';
+import {FormattedTimePipe} from '../shared/pipes/formatted-time.pipe';
+import {Task} from '../shared/shared';
 import {TaskTooltipDirective} from './pomodoro-task.directive';
-import {TaskService} from './pomodoro-task.service';
+import {TaskService} from '../shared/services/task.service';
 import {TaskIconsComponent} from './pomodoro.taskIcons.component';
 
 
