@@ -12,7 +12,6 @@ export class TaskTooltipDirective{
 
     @HostListener('mouseover')
     onMouseOver(){        
-        console.log(this.task.name);
         if(!this.defaultTooltipText && this.taskTooltip){
             this.defaultTooltipText = this.taskTooltip.innerText;
         }
